@@ -11,7 +11,7 @@ import NotFound from './components/NotFound';
 
 const Root = () => {
         return (
-                <Router>
+        <Router>
                 <div>
                 <Switch>
                         <Route exact path="/" component={StorePicker} />
@@ -19,7 +19,7 @@ const Root = () => {
                         <Route component={NotFound} />
                </Switch>
                 </div>
-                </Router>
+        </Router>
         )
 }
 
