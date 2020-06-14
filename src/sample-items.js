@@ -6,7 +6,7 @@ const foods = {
     desc:
       "Big, sweet and tender. True dry-pack paneer tikka are fresh made and soft. About 8-10 per pound",
     price: 1684,
-    status: "unavailable"
+    status: "available"
   },
 
   food2: {
@@ -24,7 +24,7 @@ const foods = {
     desc:
       "Everyone’s favorite pink sauce pasta. We will pack it to the size your need and ship it.",
     price: 1724,
-    status: "available"
+    status: "unavailable"
     
   },
 
