@@ -4,7 +4,7 @@ import AddFoodForm from './AddFoodForm';
 class Inventory extends React.Component{
     render(){
         return (
-        <div className="inventory">Inventory!!
+        <div className="inventory-wrap">Inventory!!
     
             <AddFoodForm addItem={this.props.addItem}/>
             <button onClick={this.props.loadSamples}>Load Sample Items</button>

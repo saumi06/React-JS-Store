@@ -4,6 +4,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import Item from './Item';
 import sampleItems from '../sample-items';
+import base from '../base';
 
 class App extends React.Component {
     constructor() {
@@ -17,6 +18,19 @@ class App extends React.Component {
             order: {}
 
         };
+    }
+
+    componentDidMount() {
+        this.ref = base.syncState(`${this.props.match.params.storeId}/foods`,
+            {
+                context: this,
+                state: 'foods'
+            });
+
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.ref);
     }
     addItem(food) {
         //update state
@@ -59,7 +73,7 @@ class App extends React.Component {
                     </ul>
 
                 </div>
-                <Order />
+                <Order foods={this.state.foods} order={this.state.order} />
                 <Inventory addItem={this.addItem}
                     loadSamples={this.loadSamples} />
             </div>
