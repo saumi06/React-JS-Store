@@ -2,17 +2,45 @@ import React from 'react';
 import Header from './Header'
 import Order from './Order'
 import Inventory from './Inventory'
-
+import sampleItems from '../sample-items';
 
 class App extends React.Component{
+    constructor(){
+        super();
+        this.addItem = this.addItem.bind(this);
+        this.loadSamples = this.loadSamples.bind(this);
+        
+        this.state = {
+            foods: {},
+            order: {}
+
+        };
+    }
+    addItem(food){
+        //update state
+        const foods = {...this.state.foods};
+        //this takes a copy of food and puts it into foods
+        //add in our food
+        const timestamp = Date.now();
+        foods[`food-${timestamp}`] = food;
+        //this.state.foods.food1= food;
+        //set state
+        this.setState({foods})
+    }
+    loadSamples(){
+        this.setState({
+            foods:sampleItems
+        });
+    }
     render(){
         return ( 
             <div className= "catch-of-the-day">
                 <div className="menu">
-                    <Header tagline="Fresh Food"/>
+                    <Header tagline="Fresh Food Market"/>
                 </div>
                 <Order />
-                <Inventory />
+                <Inventory addItem={this.addItem} 
+                loadSamples={this.loadSamples}/>
             </div>
 
         )

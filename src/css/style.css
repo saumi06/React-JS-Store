@@ -260,7 +260,7 @@ header.top {
   text-align: center;
 }
 header.top h1 {
-  font-size: 14.4rem;
+  font-size: 13rem;
   line-height: 0.7;
   display: -webkit-box;
   display: flex;
@@ -276,14 +276,20 @@ header.top h1 .ofThe {
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
-  background: url("images/anchor.svg") center no-repeat;
-  background-size: cover;
-  padding: 0 1rem;
+  background: url("images/anchor2.svg") center no-repeat;
+  background-size: 75%;
+  padding: 0 0rem;
 }
 header.top h1 .ofThe .of {
-  padding-right: 2rem;
+  padding-right: 0rem;
   position: relative;
-  right: -0.5rem;
+  top: -2.5rem;
+}
+
+header.top h1 .ofThe .the {
+  padding-right: 0rem;
+  position: relative;
+  bottom: -2.5rem;
 }
 header.top h3 {
   margin: 0;
@@ -433,7 +439,7 @@ ul.order li span.count span {
 .order-title {
   text-align: center;
 }
-.fish-edit {
+.food-edit {
   margin-bottom: 20px;
   border: 2px solid #000;
   overflow: hidden;
@@ -441,9 +447,9 @@ ul.order li span.count span {
   display: flex;
   flex-wrap: wrap;
 }
-.fish-edit input,
-.fish-edit textarea,
-.fish-edit select {
+.food-edit input,
+.food-edit textarea,
+.food-edit select {
   width: 33.33%;
   padding: 10px;
   line-height: 1;
@@ -457,19 +463,19 @@ ul.order li span.count span {
   border-radius: 0;
   background: #fff;
 }
-.fish-edit input:focus,
-.fish-edit textarea:focus,
-.fish-edit select:focus {
+.food-edit input:focus,
+.food-edit textarea:focus,
+.food-edit select:focus {
   outline: 0;
   background: #fef2de;
 }
-.fish-edit textarea {
+.food-edit textarea {
   width: 100%;
 }
-.fish-edit input:last-of-type {
+.food-edit input:last-of-type {
   width: 100%;
 }
-.fish-edit button {
+.food-edit button {
   width: 100%;
   border: 0;
 }

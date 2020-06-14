@@ -4,7 +4,7 @@ import React from 'react';
 const Header = (props)=>{return (
     <header className="top">
         <h1>
-            Catch 
+            Dish
             <span className="ofThe">
             <span className="of">of</span>
             <span className="the">the</span>
