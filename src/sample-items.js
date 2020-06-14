@@ -1,30 +1,31 @@
 // This is just some sample data so you don't have to think of your own!
 const foods = {
   food1: {
-    name: "Veggie Pasta",
-    image: "/images/pasta.jpg",
+    name: "Paneer Tikka",
+    image: "/images/paneer.jpg",
     desc:
-      "Everyone’s favorite pink sauce pasta. We will pack it to the size your need and ship it.",
-    price: 17.24,
-    status: "available"
+      "Big, sweet and tender. True dry-pack paneer tikka are fresh made and soft. About 8-10 per pound",
+    price: 1684,
+    status: "unavailable"
   },
 
   food2: {
-    name: "Chicken Burger",
+    name: "Tikka Burger",
     image: "/images/burger.jpg",
     desc:
-      "These tender, mouth-watering chicken tenders are a fantastic hit at any dinner party.",
-    price: 32.00,
+      "These tender, mouth-watering tikka burgers are a fantastic hit at any dinner party.",
+    price: 3200,
     status: "available"
   },
 
   food3: {
-    name: "Sea Scallops",
-    image: "/images/scallops.jpg",
+    name: "Veggie Pasta",
+    image: "/images/pasta.jpg",
     desc:
-      "Big, sweet and tender. True dry-pack scallops from the icey waters of Alaska. About 8-10 per pound",
-    price: 16.84,
-    status: "unavailable"
+      "Everyone’s favorite pink sauce pasta. We will pack it to the size your need and ship it.",
+    price: 1724,
+    status: "available"
+    
   },
 
   food4: {
@@ -32,7 +33,7 @@ const foods = {
     image: "/images/smoothie.jpg",
     desc:
       "Lean glass of fresh fruits with a mild, sweet flavor profile with a pinch of yogurt ",
-    price: 11.29,
+    price: 1129,
     status: "available"
   },
 
@@ -41,7 +42,7 @@ const foods = {
     image: "/images/potato.jpg",
     desc:
       "Take a spoonfun and enjoy them plain or with one of our cocktail sauces and breads.",
-    price: 42.34,
+    price: 4234,
     status: "available"
   },
 
@@ -58,17 +59,17 @@ const foods = {
     name: "Fresh Oranges",
     image: "/images/orange.jpg",
     desc: "A soft plump orange with a sweet salty flavor and a clean finish.",
-    price: 2.53,
+    price: 253,
     status: "available"
   },
 
    food8: {
-    name: "Healthy Breakfast",
-    image: "/images/bread.jpg",
+    name: "Sea Scallops",
+    image: "/images/scallops.jpg",
     desc:
-      "With goodness of fruits, avacado and spices, these breads are perfect for breakfast.",
-    price: 22.50,
-    status: "available"
+      "Big, sweet and tender. True dry-pack scallops from the icey waters of Alaska. About 8-10 per pound",
+    price: 1684,
+    status: "unavailable"
   }
 };
 

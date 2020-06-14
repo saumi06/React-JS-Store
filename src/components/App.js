@@ -1,7 +1,8 @@
 import React from 'react';
-import Header from './Header'
-import Order from './Order'
-import Inventory from './Inventory'
+import Header from './Header';
+import Order from './Order';
+import Inventory from './Inventory';
+import Item from './Item';
 import sampleItems from '../sample-items';
 
 class App extends React.Component{
@@ -37,6 +38,14 @@ class App extends React.Component{
             <div className= "catch-of-the-day">
                 <div className="menu">
                     <Header tagline="Fresh Food Market"/>
+                    <ul className="list-of-items">
+                       {
+                        Object
+                            .keys(this.state.foods)
+                            .map(key => <Item key={key} details={this.state.foods[key]}/>)
+                       }
+                    </ul>
+        
                 </div>
                 <Order />
                 <Inventory addItem={this.addItem} 
