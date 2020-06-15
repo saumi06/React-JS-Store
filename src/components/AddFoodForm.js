@@ -18,7 +18,7 @@ class AddFoodForm extends React.Component{
     }
     render(){
         return (
-        <form ref = {(input) =>this.foodForm=input}className= "food-edit" onSubmit={(e)=>this.createItem(e)}>
+        <form ref = {(input) =>this.foodForm=input} className= "item-edit" onSubmit={(e)=>this.createItem(e)}>
             <input ref = {(input) => this.name = input} type="text" placeholder= "Food Name"/>
             <input ref = {(input) => this.price = input} type="text" placeholder= "Food Price"/>
             <select ref = {(input) => this.status = input}>

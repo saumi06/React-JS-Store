@@ -10,6 +10,8 @@ class App extends React.Component {
     constructor() {
         super();
         this.addItem = this.addItem.bind(this);
+        this.updateItem = this.updateItem.bind(this);
+
         this.loadSamples = this.loadSamples.bind(this);
         this.addToOrder = this.addToOrder.bind(this);
 
@@ -29,10 +31,10 @@ class App extends React.Component {
             });
         //check if there is any order in local storage
         const localStorageRef = localStorage.getItem(`order-${this.props.match.params.storeId}`);
-        if(localStorageRef){
+        if (localStorageRef) {
             //update our App components order status
             this.setState({
-                order:JSON.parse(localStorageRef)
+                order: JSON.parse(localStorageRef)
             });
         }
     }
@@ -41,9 +43,9 @@ class App extends React.Component {
         base.removeBinding(this.ref);
     }
 
-    componentDidUpdate(nextProps,nextState){
+    componentDidUpdate(nextProps, nextState) {
         localStorage.setItem(`order-${this.props.match.params.storeId}`,
-        JSON.stringify(nextState.order));
+            JSON.stringify(nextState.order));
     }
 
     addItem(food) {
@@ -58,6 +60,12 @@ class App extends React.Component {
         this.setState({ foods })
     }
 
+    updateItem(key, updatedItem) {
+        const foods = { ...this.state.foods };
+        foods[key] = updatedItem;
+        this.setState({ foods });
+
+    }
 
     loadSamples() {
         this.setState({
@@ -89,12 +97,15 @@ class App extends React.Component {
                     </ul>
 
                 </div>
-                <Order 
-                    foods={this.state.foods} 
+                <Order
+                    foods={this.state.foods}
                     order={this.state.order}
                     params={this.props.match.params} />
                 <Inventory addItem={this.addItem}
-                    loadSamples={this.loadSamples} />
+                    loadSamples={this.loadSamples}
+                    foods={this.state.foods}
+                    updateItem={this.updateItem}
+                />
             </div>
 
         )
