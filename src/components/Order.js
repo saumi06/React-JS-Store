@@ -11,7 +11,7 @@ class Order extends React.Component {
         const count= this.props.order[key];
 
         if(!item || item.status ==='unavailable' ){
-            return <li key={key}>Sorry, {item? item.name: 'item'} is no longer available}</li>
+            return <li key={key}>Sorry, {item? item.name: 'item'} is no longer available</li>
         }
         return(
             <li key={key}>
