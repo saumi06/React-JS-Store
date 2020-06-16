@@ -11,9 +11,10 @@ class App extends React.Component {
         super();
         this.addItem = this.addItem.bind(this);
         this.updateItem = this.updateItem.bind(this);
-
+        this.removeItem = this.removeItem.bind(this);
         this.loadSamples = this.loadSamples.bind(this);
         this.addToOrder = this.addToOrder.bind(this);
+        this.removeFromOrder = this.removeFromOrder.bind(this);
 
         this.state = {
             foods: {},
@@ -67,6 +68,11 @@ class App extends React.Component {
 
     }
 
+    removeItem(key) {
+        const foods = { ...this.state.foods };
+        foods[key] = null;
+        this.setState({ foods });
+    }
     loadSamples() {
         this.setState({
             foods: sampleItems
@@ -78,6 +84,11 @@ class App extends React.Component {
         //update or add no number of order 
         order[key] = order[key] + 1 || 1;
         //update state
+        this.setState({ order });
+    }
+    removeFromOrder(key) {
+        const order = { ...this.state.order };
+        delete order[key];
         this.setState({ order });
     }
     render() {
@@ -100,10 +111,12 @@ class App extends React.Component {
                 <Order
                     foods={this.state.foods}
                     order={this.state.order}
-                    params={this.props.match.params} />
+                    params={this.props.match.params}
+                    removeFromOrder={this.removeFromOrder} />
                 <Inventory addItem={this.addItem}
                     loadSamples={this.loadSamples}
                     foods={this.state.foods}
+                    removeItem={this.removeItem}
                     updateItem={this.updateItem}
                 />
             </div>
