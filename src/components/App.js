@@ -8,6 +8,11 @@ import base from '../base';
 import PropTypes from 'prop-types';
 
 class App extends React.Component {
+    state = {
+        foods: {},
+        order: {}
+
+    };
     constructor() {
         super();
         this.addItem = this.addItem.bind(this);
@@ -16,23 +21,19 @@ class App extends React.Component {
         this.loadSamples = this.loadSamples.bind(this);
         this.addToOrder = this.addToOrder.bind(this);
         this.removeFromOrder = this.removeFromOrder.bind(this);
-
-        this.state = {
-            foods: {},
-            order: {}
-
-        };
     }
 
     componentDidMount() {
+        const { params } = this.props.match;
         //this runs before app is rendered
-        this.ref = base.syncState(`${this.props.match.params.storeId}/foods`,
+        this.ref = base.syncState(`${params.storeId}/foods`,
             {
                 context: this,
                 state: 'foods'
             });
+
         //check if there is any order in local storage
-        const localStorageRef = localStorage.getItem(`order-${this.props.match.params.storeId}`);
+        const localStorageRef = localStorage.getItem(`order-${params.storeId}`);
         if (localStorageRef) {
             //update our App components order status
             this.setState({
@@ -119,6 +120,7 @@ class App extends React.Component {
                     foods={this.state.foods}
                     removeItem={this.removeItem}
                     updateItem={this.updateItem}
+                    storeId={this.props.match.params.storeId}
                 />
             </div>
 
@@ -126,7 +128,7 @@ class App extends React.Component {
     }
 }
 
-App.propTypes={
-    params:PropTypes.object
+App.propTypes = {
+    params: PropTypes.object
 }
 export default App;

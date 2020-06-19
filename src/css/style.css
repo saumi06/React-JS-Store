@@ -260,7 +260,7 @@ header.top {
   text-align: center;
 }
 header.top h1 {
-  font-size: 12.0rem;
+  font-size: 10rem;
   line-height: 0.7;
   display: -webkit-box;
   display: flex;
@@ -270,7 +270,7 @@ header.top h1 {
 header.top h1 .ofThe {
   display: -webkit-box;
   display: flex;
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #f5a623;
   -webkit-box-pack: center;
           justify-content: center;
@@ -283,17 +283,17 @@ header.top h1 .ofThe {
 }
 
 header.top h1 .ofThe .of {
-  padding-right: 2rem;
+  padding-right: 1rem;
   position: relative;
   right: 0rem;
-  top: -2rem;
+  top: 0;
   
 }
 header.top h1 .ofThe .the {
   padding-right: 2rem;
   position: relative;
   left: 3rem;
-  top: 2.5rem;
+  top: 0rem;
  
 }
 header.top h3 {
@@ -589,8 +589,8 @@ button.success:after,
 input[type=submit].success:after {
   background: #2dc22d;
 }
-button.github,
-input[type=submit].github,
+button.google,
+input[type=submit].google,
 button.facebook,
 input[type=submit].facebook,
 button.twitter,
@@ -602,12 +602,12 @@ input[type=submit].twitter {
   color: #fff;
   padding: 2rem;
 }
-button.github,
-input[type=submit].github {
+button.google,
+input[type=submit].google {
   background: #82d465;
 }
-button.github:after,
-input[type=submit].github:after {
+button.google:after,
+input[type=submit].google:after {
   background: #5cc437;
 }
 button.facebook,
