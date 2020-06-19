@@ -1,5 +1,6 @@
 import React from 'react';
 import AddFoodForm from './AddFoodForm';
+import PropTypes from 'prop-types';
 
 class Inventory extends React.Component {
     constructor() {
@@ -53,5 +54,12 @@ class Inventory extends React.Component {
             </div>
         )
     }
+}
+Inventory.propTypes={
+    updateItem: PropTypes.func.isRequired,
+    foods: PropTypes.object.isRequired,
+    removeItem : PropTypes.func.isRequired,
+    addItem: PropTypes.func.isRequired,
+    loadSamples: PropTypes.func.isRequired
 }
 export default Inventory;

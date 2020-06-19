@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 class AddFoodForm extends React.Component{
     createItem(event){
@@ -31,5 +31,8 @@ class AddFoodForm extends React.Component{
         </form>
         )
     }
+}
+AddFoodForm.propTypes ={
+    addItem: PropTypes.func.isRequired
 }
 export default AddFoodForm;

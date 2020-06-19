@@ -5,6 +5,7 @@ import Inventory from './Inventory';
 import Item from './Item';
 import sampleItems from '../sample-items';
 import base from '../base';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
     constructor() {
@@ -123,5 +124,9 @@ class App extends React.Component {
 
         )
     }
+}
+
+App.propTypes={
+    params:PropTypes.object
 }
 export default App;
