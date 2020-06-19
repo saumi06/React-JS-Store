@@ -6,17 +6,11 @@ import firebase from 'firebase';
 
 
 class Inventory extends React.Component {
-  constructor() {
-    super();
-    this.renderInventory = this.renderInventory.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.renderLogin = this.renderLogin.bind(this);
-    this.authenticate = this.authenticate.bind(this);
-    this.state = {
-      uid: null,
-      owner: null
-    }
-  }
+  state = {
+    uid: null,
+    owner: null
+  };
+
   componentDidMount(){
     firebase.auth().onAuthStateChanged(user =>{
       if(user){
@@ -25,7 +19,8 @@ class Inventory extends React.Component {
     });
 
   }
-  handleChange(e, key) {
+
+  handleChange = (e, key) => {
     const item = this.props.foods[key];
     //take a copy of item and update
     const updateItem = {
@@ -35,8 +30,9 @@ class Inventory extends React.Component {
 
     this.props.updateItem(key, updateItem);
 
-  }
-  authenticate(provider) {
+  };
+  
+  authenticate = (provider) => {
     console.log("Trying to login with ",provider);
     
     if(provider==="google"){
@@ -46,7 +42,6 @@ class Inventory extends React.Component {
       authProvider = new firebase.auth.FacebookAuthProvider();
     }
     
-
     firebaseApp
     .auth()
     .signInWithPopup(authProvider)
@@ -74,7 +69,7 @@ class Inventory extends React.Component {
       });
   };
 
-  renderLogin() {
+  renderLogin = () => {
     return (
       <nav className="login">
         <h2>Inventory</h2>
@@ -85,8 +80,9 @@ class Inventory extends React.Component {
         }>Log in with Facebook</button>
       </nav>
     )
-  }
-  renderInventory(key) {
+  };
+
+  renderInventory = (key) => {
 
     const item = this.props.foods[key];
 
@@ -109,7 +105,8 @@ class Inventory extends React.Component {
         <button onClick={() => this.props.removeItem(key)}>Remove Item</button>
       </div>
     )
-  }
+  };
+
   render() {
     const logout = <button onClick={    this.logout}>Log Out!</button>
 
@@ -137,13 +134,14 @@ class Inventory extends React.Component {
       </div>
     )
   }
+  static propTypes = {
+    updateItem: PropTypes.func.isRequired,
+    foods: PropTypes.object.isRequired,
+    removeItem: PropTypes.func.isRequired,
+    addItem: PropTypes.func.isRequired,
+    loadSamples: PropTypes.func.isRequired,
+    storeId: PropTypes.string.isRequired
+  }
 }
-Inventory.propTypes = {
-  updateItem: PropTypes.func.isRequired,
-  foods: PropTypes.object.isRequired,
-  removeItem: PropTypes.func.isRequired,
-  addItem: PropTypes.func.isRequired,
-  loadSamples: PropTypes.func.isRequired,
-  storeId: PropTypes.string.isRequired
-}
+
 export default Inventory;

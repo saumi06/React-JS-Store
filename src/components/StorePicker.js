@@ -4,7 +4,7 @@ import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component{
    
-    goToStore(event){
+    goToStore = (event) => {
         //grab text from box
         event.preventDefault();
         console.log('you changed the url');
@@ -14,7 +14,7 @@ class StorePicker extends React.Component{
         //transition from / to .store/storeid
         this.props.history.push(`/store/${storeId}`);
 
-    }
+    };
     
     render() {
         return (
@@ -32,10 +32,11 @@ class StorePicker extends React.Component{
 
         )
     }
+    staticcontextTypes = {
+        router: PropTypes.object.isRequired,
+        
+    };
 }
 
-StorePicker.contextTypes = {
-    router: PropTypes.object.isRequired,
-    
-}
+
 export default StorePicker;

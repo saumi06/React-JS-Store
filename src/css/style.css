@@ -332,7 +332,9 @@ header.top h3:after {
   height: 90vh;
   max-width: 1500px;
   margin: 0 auto;
-  margin-top: 5vh;
+  margin-top: 6vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   -webkit-transform-style: preserve-3d;

@@ -13,15 +13,6 @@ class App extends React.Component {
         order: {}
 
     };
-    constructor() {
-        super();
-        this.addItem = this.addItem.bind(this);
-        this.updateItem = this.updateItem.bind(this);
-        this.removeItem = this.removeItem.bind(this);
-        this.loadSamples = this.loadSamples.bind(this);
-        this.addToOrder = this.addToOrder.bind(this);
-        this.removeFromOrder = this.removeFromOrder.bind(this);
-    }
 
     componentDidMount() {
         const { params } = this.props.match;
@@ -51,7 +42,7 @@ class App extends React.Component {
             JSON.stringify(nextState.order));
     }
 
-    addItem(food) {
+    addItem = (food) => {
         //update state
         const foods = { ...this.state.foods };
         //this takes a copy of food and puts it into foods
@@ -61,38 +52,42 @@ class App extends React.Component {
         //this.state.foods.food1= food;
         //set state
         this.setState({ foods })
-    }
+    };
 
-    updateItem(key, updatedItem) {
+    updateItem = (key, updatedItem) => {
         const foods = { ...this.state.foods };
         foods[key] = updatedItem;
         this.setState({ foods });
 
-    }
+    };
 
-    removeItem(key) {
+    removeItem = (key) => {
         const foods = { ...this.state.foods };
         foods[key] = null;
         this.setState({ foods });
-    }
-    loadSamples() {
+    };
+
+    loadSamples = () => {
         this.setState({
             foods: sampleItems
         });
-    }
-    addToOrder(key) {
+    };
+
+    addToOrder = (key) => {
         //take copy of state
         const order = { ...this.state.order };
         //update or add no number of order 
         order[key] = order[key] + 1 || 1;
         //update state
         this.setState({ order });
-    }
-    removeFromOrder(key) {
+    };
+
+    removeFromOrder = (key) => {
         const order = { ...this.state.order };
         delete order[key];
         this.setState({ order });
-    }
+    };
+
     render() {
         return (
             <div className="catch-of-the-day">
@@ -126,9 +121,9 @@ class App extends React.Component {
 
         )
     }
+    static propTypes = {
+        params: PropTypes.object
+    };
 }
 
-App.propTypes = {
-    params: PropTypes.object
-}
 export default App;

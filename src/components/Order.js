@@ -4,11 +4,8 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 
 class Order extends React.Component {
-  constructor() {
-    super();
-    this.renderOrder = this.renderOrder.bind(this);
-  }
-  renderOrder(key) {
+  
+  renderOrder = (key) => {
     const item = this.props.foods[key];
     const count = this.props.order[key];
     const isAvailable = item && item.status === "available";
@@ -41,7 +38,7 @@ class Order extends React.Component {
         </li>
       </CSSTransition>
     )
-  }
+  };
 
   render() {
     const orderIds = Object.keys(this.props.order);
@@ -72,10 +69,11 @@ class Order extends React.Component {
       </div>
     )
   }
+  static propTypes = {
+    foods: PropTypes.object.isRequired,
+    order: PropTypes.object.isRequired,
+    removeFromOrder: PropTypes.func.isRequired
+  }
 }
-Order.propTypes = {
-  foods: PropTypes.object.isRequired,
-  order: PropTypes.object.isRequired,
-  removeFromOrder: PropTypes.func.isRequired
-}
+
 export default Order;

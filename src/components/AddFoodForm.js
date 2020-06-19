@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddFoodForm extends React.Component{
-    createItem(event){
+    createItem = (event) =>{
         event.preventDefault();   
         console.log('gonna order some food');
         const food = {
@@ -15,7 +15,8 @@ class AddFoodForm extends React.Component{
         this.props.addItem(food);
         this.foodForm.reset();
         console.log(food);
-    }
+    };
+    
     render(){
         return (
         <form ref = {(input) =>this.foodForm=input} className= "item-edit" onSubmit={(e)=>this.createItem(e)}>
@@ -31,8 +32,9 @@ class AddFoodForm extends React.Component{
         </form>
         )
     }
+    static propTypes ={
+        addItem: PropTypes.func.isRequired
+    };
 }
-AddFoodForm.propTypes ={
-    addItem: PropTypes.func.isRequired
-}
+
 export default AddFoodForm;

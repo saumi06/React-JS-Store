@@ -21,10 +21,11 @@ class Item extends React.Component {
             </li>
         )
     }
+    static propTypes= { 
+        details: PropTypes.object.isRequired,
+        index: PropTypes.string.isRequired,
+        addToOrder: PropTypes.func.isRequired
+    }
 }
-Item.propTypes= { 
-    details: PropTypes.object.isRequired,
-    index: PropTypes.string.isRequired,
-    addToOrder: PropTypes.func.isRequired
-}
+
 export default Item;
